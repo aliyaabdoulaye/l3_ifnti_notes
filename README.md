@@ -25,7 +25,9 @@ Application web de gestion de notes d'étudiants développée dans le cadre des 
    ```bash
    git clone https://github.com/aliyaabdoulaye/l3_ifnti_notes.git
    cd l3_ifnti_notes
-```
+````
+
+2. **a**
 
 3. **Installer les dépendances**
 
