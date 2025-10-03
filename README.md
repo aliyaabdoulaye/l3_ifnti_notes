@@ -29,10 +29,10 @@ Application web de gestion de notes d'étudiants développée dans le cadre des 
 
 2. **Créer et activer un environnement virtuel (recommandé)**
 
-	```bash
+```bash
    python -m venv venv
    source venv/bin/activate  
-   ````
+````
 
 3. **Installer les dépendances**
 
