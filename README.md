@@ -15,7 +15,7 @@ Application web de gestion de notes d'étudiants développée dans le cadre des 
 ## Technologies utilisées
 - Python **3.12.3**
 - Django **5.2.6**
-- SQLite (base de données par défaut)
+- Postgresql **14**
 
 ---
 
@@ -23,8 +23,8 @@ Application web de gestion de notes d'étudiants développée dans le cadre des 
 
 1. **Cloner le repository**
    ```bash
-   git clone https://github.com/aliyaabdoulaye/ifnti_l3_notes.git
-   cd ifnti_l3_notes
+   git clone https://github.com/aliyaabdoulaye/l3_ifnti_notes.git
+   cd l3_ifnti_notes
 ````
 
 2. **Créer et activer un environnement virtuel (recommandé)**
@@ -67,7 +67,7 @@ Application web de gestion de notes d'étudiants développée dans le cadre des 
 ##  Structure du projet
 
 ```
-ifnti_l3_notes/
+l3_ifnti_notes/
 │── ifnti_l3/              # Fichiers principaux de configuration Django
 │── notes/                 # Application principale (models, views, templates)
 │── manage.py              # Commandes Django
