@@ -33,31 +33,31 @@ Application web de gestion de notes d'étudiants développée dans le cadre des 
    python -m venv venv
    source venv/bin/activate   # Sur Linux/Mac
    venv\Scripts\activate      # Sur Windows
-   ```
+   ````
 
 3. **Installer les dépendances**
 
    ```bash
    pip install -r requirements.txt
-   ```
+   ````
 
 4. **Appliquer les migrations**
 
    ```bash
    python manage.py migrate
-   ```
+   ````
 
 5. **Créer un superutilisateur (pour accéder à l’admin Django)**
 
    ```bash
    python manage.py createsuperuser
-   ```
+   ````
 
 6. **Lancer le serveur**
 
    ```bash
    python manage.py runserver
-   ```
+   ````
 
    Puis ouvrir ton navigateur à l’adresse :
     [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
@@ -74,10 +74,10 @@ ifnti_l3_notes/
 │── requirements.txt       # Dépendances Python
 │── README.md              # Documentation du projet
 │── .gitignore             # Fichiers ignorés par Git
-```
+````
 
 ---
 
 ##  Auteur
 
- **Aliya Abdoulaye** – Étudiant en Génie Logiciel à l’IFNTI
+ **Aliya Abdoulaye** – Étudiante en Génie Logiciel à l’IFNTI
