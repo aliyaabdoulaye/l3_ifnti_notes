@@ -16,3 +16,15 @@ db.sqlite3
 *.egg-info/
 *.pytest_cache/
 *.migrations/
+
+# Environnement virtuel
+django_env/
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
