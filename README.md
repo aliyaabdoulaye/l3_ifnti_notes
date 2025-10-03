@@ -25,15 +25,22 @@ Application web de gestion de notes d'étudiants développée dans le cadre des 
    ```bash
    git clone https://github.com/aliyaabdoulaye/l3_ifnti_notes.git
    cd l3_ifnti_notes
-````
 
-2. **a**
+
+2. **Créer et activer un environnement virtuel**
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # Sur Linux/Mac
+   venv\Scripts\activate      # Sur Windows
+   ```
+
+
 
 3. **Installer les dépendances**
 
    ```bash
    pip install -r requirements.txt
-   ````
 
 4. **Appliquer les migrations**
 
