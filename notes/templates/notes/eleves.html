@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des élèves</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Liste des élèves</h1>
+    <p><a href="{% url 'notes:index' %}">Retour à l'accueil</a></p>
+    
+    {% for eleve in eleves %}
+    <div class="eleve">
+        <h3><a href="{% url 'notes:eleve' eleve.id %}">
+
+            {{ eleve.prenom }} {{ eleve.nom }}
+        </a></h3>
+        <p><strong>Niveau:</strong> 
+            <a href="{% url 'notes:niveau' eleve.niveau.id %}">
+                {{ eleve.niveau }}
+            </a>
+        </p>
+        
+        <div class="notes">
+            <strong>Notes:</strong>
+            {% if eleve.notes.all %}
+                <ul>
+                {% for note in eleve.notes.all %}
+                    <li>
+                        <a href="{% url 'notes:matiere' note.matiere.id %}">
+                            {{ note.matiere.nom }}
+                        </a>: {{ note.valeur }}/20
+                    </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>Aucune note</p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détail de {{ matiere.nom }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .info { margin: 10px 0; }
+        .section { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ matiere.nom }}</h1>
+    
+    <div class="info">
+        <p><strong>Enseignant:</strong> {{ matiere.enseignant }}</p>
+        <p><strong>Niveaux concernés:</strong>
+            {% for niveau in matiere.niveaux.all %}
+                {{ niveau.nom }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+    
+    <div class="section">
+        <h2>Élèves inscrits</h2>
+        {% if matiere.notes.all %}
+            <ul>
+            {% for note in matiere.notes.all %}
+                <li>{{ note.eleve }} - Note: {{ note.valeur }}/20</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucun élève inscrit</p>
+        {% endif %}
+    </div>
+</body>
+</html>

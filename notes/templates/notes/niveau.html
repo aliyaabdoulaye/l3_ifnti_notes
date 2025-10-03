@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Niveau {{ niveau.nom }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .section { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Niveau {{ niveau.nom }}</h1>
+    
+    <div class="section">
+        <h2>Élèves du niveau</h2>
+        {% if niveau.eleves.all %}
+            <ul>
+            {% for eleve in niveau.eleves.all %}
+                <li>{{ eleve.prenom }} {{ eleve.nom }} ({{ eleve.matricule }})</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucun élève dans ce niveau</p>
+        {% endif %}
+    </div>
+    
+    <div class="section">
+        <h2>Matières enseignées</h2>
+        {% if niveau.matieres.all %}
+            <ul>
+            {% for matiere in niveau.matieres.all %}
+                <li>{{ matiere.nom }} - {{ matiere.enseignant }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucune matière pour ce niveau</p>
+        {% endif %}
+    </div>
+</body>
+</html>

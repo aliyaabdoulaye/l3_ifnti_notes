@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des matières</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        .matiere { 
+            border: 1px solid #ddd; 
+            padding: 10px; 
+            margin: 10px 0; 
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des matières</h1>
+    {% for matiere in matieres %}
+    <div class="matiere">
+        <h3>{{ matiere.nom }}</h3>
+        <p><strong>Enseignant:</strong> {{ matiere.enseignant }}</p>
+        <p><strong>Niveaux concernés:</strong> 
+            {% for niveau in matiere.niveaux.all %}
+                {{ niveau.nom }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détail de {{ eleve.prenom }} {{ eleve.nom }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>{{ eleve.prenom }} {{ eleve.nom }}</h1>
+    <p>
+        <a href="/notes/">Accueil</a> | 
+        <a href="/notes/eleves/">Liste des élèves</a>
+    </p>
+    
+    <div class="info">
+        <p><strong>Matricule:</strong> {{ eleve.matricule }}</p>
+        <p><strong>Niveau:</strong> 
+            <a href="/notes/niveau/{{ eleve.niveau.id }}/">
+                {{ eleve.niveau }}
+            </a>
+        </p>
+        <p><strong>Sexe:</strong> {{ eleve.get_sexe_display }}</p>
+        <p><strong>Date de naissance:</strong> {{ eleve.date_naissance }}</p>
+    </div>
+    
+    <div class="notes">
+        <h2>Notes</h2>
+        {% if eleve.notes.all %}
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th>Matière</th>
+                    <th>Note</th>
+                </tr>
+                {% for note in eleve.notes.all %}
+                <tr>
+                    <td>
+                        <a href="/notes/matiere/{{ note.matiere.id }}/">
+                            {{ note.matiere.nom }}
+                        </a>
+                    </td>
+                    <td>{{ note.valeur }}/20</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Aucune note enregistrée</p>
+        {% endif %}
+    </div>
+</body>
+</html>
