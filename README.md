@@ -31,7 +31,6 @@ Application web de gestion de notes d'étudiants développée dans le cadre des 
    ```bash
    python -m venv venv
    source venv/bin/activate   # Sur Linux/Mac
-   venv\Scripts\activate      # Sur Windows
    ````
 
 3. **Installer les dépendances**
