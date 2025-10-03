@@ -27,7 +27,7 @@ Application web de gestion de notes d'étudiants développée dans le cadre des 
    cd l3_ifnti_notes
 ````
 
-2. **Créer et activer un environnement virtuel (recommandé)**
+2. **Creer et activer un environnement virtuel**
 
 ```bash
    python -m venv venv
