@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Bibliothèque IFNTI{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav {
+            background: #333;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+            border-radius: 8px 8px 0 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .stat-box {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            flex: 1;
+            margin: 0 10px;
+        }
+        .stat-box h2 {
+            margin: 0;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="{% url 'notes:statistiques' %}">Accueil</a>
+            <a href="{% url 'notes:eleves' %}">Eleves</a>
+            <a href="{% url 'notes:enseignants' %}">Enseignants</a>
+            <a href="{% url 'notes:enseignants' %}">Matieres</a>
+            <a href="{% url 'notes:enseignants' %}">Notes</a>
+            <a href="/admin/">Administration</a>
+        </nav>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

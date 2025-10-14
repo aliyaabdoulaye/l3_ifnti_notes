@@ -1,0 +1,87 @@
+
+{% extends 'notes/base.html' %}
+
+{% block title %}Accueil - gestion notes{% endblock %}
+
+{% block content %}
+<h1>Système de Gestion de notes</h1>
+
+<section>
+<div class="stats">
+    <div class="stat-box">
+        <h2>{{ nb_eleves }}</h2>
+        <p>Nombre total des élèves</p>
+    </div>
+    <div class="stat-box">
+        <h2>{{ nb_enseignants }}</h2>
+        <p>Nombre total des enseignants</p>
+    </div>
+    <div class="stat-box">
+        <h2>{{ nb_matieres }}</h2>
+        <p>Nombre total des matières</p>
+    </div>
+    <div class="stat-box">
+        <h2>{{ nb_notes }}</h2>
+        <p>Nombre total des notes</p>
+    </div>
+    <div class="stat-box">
+        <h2>
+            {% if statistique_niveau %}
+                {{ statistique_niveau|floatformat:2 }}
+            {% else %}
+                N/A
+            {% endif %}
+        </h2>
+        <p>Moyenne générale des notes</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Bienvenue</h2>
+    <p>Cette application permet de gérer les notes des élèves :</p>
+    <ul>
+        <li>Gestion des élèves et enseignants</li>
+        <li>Gestion des Notes</li>
+        <li>Interface d'administration complète</li>
+    </ul>
+</div>
+
+<div class="card" style="margin-top: 20px;">
+    <h2>Détails des moyennes par élève</h2>
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead style="background: #007bff; ">
+            <tr>
+                <th style="padding: 10px;">Élève</th>
+                <th style="padding: 10px; border: 1px ">Matricule</th>
+                <th style="padding: 10px; border: 1px ">Niveau</th>
+                <th style="padding: 10px; border: 1px ">Moyenne</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for eleve in moyenne1 %}
+            <tr>
+                <td style="padding: 10px; border: 1px">{{ eleve }}</td>
+                <td style="padding: 10px; border: 1px">{{ eleve.matricule }}</td>
+                <td style="padding: 10px; border: 1px">{{ eleve.niveau.nom }}</td>
+                <td style="padding: 10px; border: 1px ">
+                    {% if eleve.moyenne_generale %}
+                        {{ eleve.moyenne_generale|floatformat:2 }}
+                    {% else %}
+                        Pas de notes
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" style="padding: 10px; border: 1px solid">
+                    Aucun élève trouvé
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</section>
+{% endblock %}
+
+
